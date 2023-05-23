@@ -24,10 +24,16 @@
 .scores {
   border: 1px solid black;
   margin: 0;
+  list-style: none;
+  padding-inline-start: 0px;
 }
 
 .scores li {
   padding: 2%;
+}
+
+.scores li:nth-child(odd) {
+  background-color: lightgray;
 }
 
 .input-div {
