@@ -1,7 +1,32 @@
-.hello {
-  color: red;
+.main-wrapper {
+  display: flex;
+  justify-content: space-around;
 }
 
-body {
-  background-color: bisque;
+.recent-scores {
+  width: 30%;
+}
+
+.title-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.refresh-button {
+  height: 100%;
+  align-self: center;
+}
+
+.add-score {
+  width: 30%;
+}
+
+.scores {
+  border: 1px solid black;
+  margin: 0;
+}
+
+.input-div {
+  display: flex;
+  flex-direction: column;
 }
