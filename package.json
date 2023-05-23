@@ -1,0 +1,12 @@
+{
+  "name": "leader-board-api",
+  "version": "1.0.0",
+  "description": "This project is a leaderboard API to learn how to use async functions and promises.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
