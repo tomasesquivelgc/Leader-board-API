@@ -25,7 +25,7 @@
   border: 1px solid black;
   margin: 0;
   list-style: none;
-  padding-inline-start: 0px;
+  padding-inline-start: 0;
 }
 
 .scores li {
