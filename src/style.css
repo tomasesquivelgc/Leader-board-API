@@ -26,7 +26,17 @@
   margin: 0;
 }
 
+.scores li {
+  padding: 2%;
+}
+
 .input-div {
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+.submit-button {
+  width: 30%;
+  align-self: flex-end;
 }
