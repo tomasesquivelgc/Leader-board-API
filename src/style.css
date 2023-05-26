@@ -1,24 +1,44 @@
+* {
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  background-color: aquamarine;
+  margin: 0;
+  padding: 3%;
+  border-bottom: 1px solid black;
+}
+
+body {
+  background-color: aqua;
+}
+
 .main-wrapper {
   display: flex;
   justify-content: space-around;
+  padding: 3%;
 }
 
 .recent-scores {
   width: 30%;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 .title-button {
   display: flex;
   justify-content: space-between;
+  padding: 3%;
+  background-color: coral;
 }
 
-.refresh-button {
-  height: 100%;
-  align-self: center;
-}
+
 
 .add-score {
   width: 30%;
+  border: 1px solid black;
+  height: 100%;
 }
 
 .scores {
@@ -28,21 +48,49 @@
   padding-inline-start: 0;
 }
 
-.scores li {
-  padding: 2%;
+.score-title {
+  padding: 3%;
+  background-color: coral;
 }
 
-.scores li:nth-child(odd) {
-  background-color: lightgray;
+.scores li {
+  padding: 2%;
+  border-bottom: 1px solid black;
+}
+
+.scores li:nth-child(1) {
+  background-color: gold;
+}
+
+
+.scores li:nth-child(2) {
+  background-color: silver;
+}
+
+.scores li:nth-child(3) {
+  background-color: #cd7f32;
+}
+
+.scores li:nth-child(n+4) {
+  background-color: antiquewhite;
 }
 
 .input-div {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 3%;
+  background-color: antiquewhite;
 }
 
 .submit-button {
   width: 30%;
   align-self: flex-end;
+}
+
+button:hover {
+  background-color: lightpink;
+  color: blueviolet;
+  border-color: blueviolet;
+  
 }
