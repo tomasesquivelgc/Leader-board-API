@@ -33,8 +33,6 @@ body {
   background-color: coral;
 }
 
-
-
 .add-score {
   width: 30%;
   border: 1px solid black;
@@ -61,7 +59,6 @@ body {
 .scores li:nth-child(1) {
   background-color: gold;
 }
-
 
 .scores li:nth-child(2) {
   background-color: silver;
@@ -92,5 +89,4 @@ button:hover {
   background-color: lightpink;
   color: blueviolet;
   border-color: blueviolet;
-  
 }
