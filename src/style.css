@@ -33,11 +33,6 @@ body {
   background-color: coral;
 }
 
-.refresh-button {
-  height: 100%;
-  align-self: center;
-}
-
 .add-score {
   width: 30%;
   border: 1px solid black;
