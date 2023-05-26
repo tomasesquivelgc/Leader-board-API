@@ -116,7 +116,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_render_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/render.js */ \"./src/modules/render.js\");\n\n\n\n(0,_modules_render_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n\n//# sourceURL=webpack://leader-board-api/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_render_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/render.js */ \"./src/modules/render.js\");\n/* harmony import */ var _modules_saveScore_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/saveScore.js */ \"./src/modules/saveScore.js\");\n\n\n\n\nconst addButton = document.getElementById('submit-button');\n\naddButton.addEventListener('click', async (event) => {\n  event.preventDefault();\n  await (0,_modules_saveScore_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n});\n\nfetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/', {\n  method: 'POST',\n  body: JSON.stringify({\n    name: \"my own game\",\n  }),\n  headers: {\n    'Content-type': 'application/json; charset=UTF-8',\n  },\n})\n  .then((response) => response.json())\n  .then((json) => console.log(json));\n//render();\n\n\n//# sourceURL=webpack://leader-board-api/./src/index.js?");
 
 /***/ }),
 
@@ -126,7 +126,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
   \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst scoreBoard = document.getElementById('scoreboard')\r\nconst myAPI = \"https://us-central1-js-capstone-backend.cloudfunctions.net/api/\";\r\n\r\nconst render = async() => {\r\n  console.log(fetch(myAPI));\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (render);\n\n//# sourceURL=webpack://leader-board-api/./src/modules/render.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst scoreBoard = document.getElementById('scoreboard')\r\nconst myAPI = \"https://us-central1-js-capstone-backend.cloudfunctions.net/api/\";\r\n\r\nconst render = async() => {\r\n  fetch(myAPI)\r\n  .then(res => res.json())\r\n  .then(data => console.log(data));\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (render);\n\n//# sourceURL=webpack://leader-board-api/./src/modules/render.js?");
+
+/***/ }),
+
+/***/ "./src/modules/saveScore.js":
+/*!**********************************!*\
+  !*** ./src/modules/saveScore.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst nameInput = document.getElementById('name-input');\r\nconst scoreInput = document.getElementById('score-input');\r\nconst myAPI = \"https://us-central1-js-capstone-backend.cloudfunctions.net/api/\";\r\n\r\nconst addScore = async () => {\r\n  const name = nameInput.value;\r\n  const score = scoreInput.value;\r\n\r\n  // Create the data object\r\n  const data = { user: name, score };\r\n\r\n  try {\r\n    // Send the data to the API\r\n    const response = await fetch(myAPI, {\r\n      method: 'POST',\r\n      headers: {\r\n        'Content-Type': 'application/json'\r\n      },\r\n      body: JSON.stringify(data)\r\n    });\r\n\r\n    if (response.ok) {\r\n      // Reset input fields\r\n      nameInput.value = '';\r\n      scoreInput.value = '';\r\n      console.log('Score added successfully.');\r\n    } else {\r\n      console.log('Failed to add score.');\r\n    }\r\n  } catch (error) {\r\n    console.error('Error:', error);\r\n  }\r\n};\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addScore);\n\n//# sourceURL=webpack://leader-board-api/./src/modules/saveScore.js?");
 
 /***/ })
 

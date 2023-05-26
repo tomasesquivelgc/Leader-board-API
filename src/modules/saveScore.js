@@ -1,6 +1,6 @@
 const nameInput = document.getElementById('name-input');
 const scoreInput = document.getElementById('score-input');
-const myAPI = "https://us-central1-js-capstone-backend.cloudfunctions.net/api/";
+const myAPI = "https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/Y5OAVzTqhjyg1NbzMAou/scores/";
 
 const addScore = async () => {
   const name = nameInput.value;
