@@ -70,7 +70,7 @@ Leaderboard API is a simple leaderboard project that stores the name and the sco
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Coming soon!
+[click here](https://tomasesquivelgc.github.io/Leader-board-API/dist/) for a live demo of my project!
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

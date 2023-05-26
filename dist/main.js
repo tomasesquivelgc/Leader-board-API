@@ -116,7 +116,27 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n\n//# sourceURL=webpack://leader-board-api/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _modules_render_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/render.js */ \"./src/modules/render.js\");\n/* harmony import */ var _modules_saveScore_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/saveScore.js */ \"./src/modules/saveScore.js\");\n\n\n\n\nconst addButton = document.getElementById('submit-button');\nconst refresh = document.getElementById('refresh-button');\n\naddButton.addEventListener('click', async (event) => {\n  event.preventDefault();\n  await (0,_modules_saveScore_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n  await (0,_modules_render_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n});\n\nrefresh.addEventListener('click', async () => {\n  await (0,_modules_render_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n});\n\n(0,_modules_render_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n//# sourceURL=webpack://leader-board-api/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/render.js":
+/*!*******************************!*\
+  !*** ./src/modules/render.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst scoreBoard = document.getElementById('scoreboard');\nconst myAPI = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/1uV0I3Da74nTfdPATfRO/scores/';\n\nconst render = async () => {\n  try {\n    const response = await fetch(myAPI);\n    if (response.ok) {\n      const data = await response.json();\n      const { result } = data;\n      const sortedScores = result.sort((a, b) => b.score - a.score);\n      scoreBoard.innerHTML = '';\n\n      sortedScores.forEach((item) => {\n        const li = document.createElement('li');\n        li.textContent = `${item.user}: ${item.score}`;\n        scoreBoard.appendChild(li);\n      });\n    } else {\n      throw new Error('Failed to fetch scores.');\n    }\n  } catch (error) {\n    throw new Error(`Error: ${error.message}`);\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (render);\n\n\n//# sourceURL=webpack://leader-board-api/./src/modules/render.js?");
+
+/***/ }),
+
+/***/ "./src/modules/saveScore.js":
+/*!**********************************!*\
+  !*** ./src/modules/saveScore.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst nameInput = document.getElementById('name-input');\nconst scoreInput = document.getElementById('score-input');\nconst myAPI = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/1uV0I3Da74nTfdPATfRO/scores/';\n\nconst addScore = async () => {\n  const name = nameInput.value;\n  const score = Number(scoreInput.value);\n\n  // Check if the score is a valid number\n  if (Number.isNaN(score)) {\n    throw new Error('Invalid score value. Please enter a number.');\n  }\n\n  // Create the data object\n  const data = { user: name, score };\n\n  try {\n    // Send the data to the API\n    const response = await fetch(myAPI, {\n      method: 'POST',\n      headers: {\n        'Content-Type': 'application/json',\n      },\n      body: JSON.stringify(data),\n    });\n\n    if (response.ok) {\n      // Reset input fields\n      nameInput.value = '';\n      scoreInput.value = '';\n      return 'Score added successfully.';\n    }\n    throw new Error('Failed to add score.');\n  } catch (error) {\n    throw new Error(`Error: ${error.message}`);\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addScore);\n\n\n//# sourceURL=webpack://leader-board-api/./src/modules/saveScore.js?");
 
 /***/ })
 
