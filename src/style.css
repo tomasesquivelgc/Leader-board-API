@@ -2,16 +2,16 @@
   margin: 0;
 }
 
+body {
+  background-color: #27005d;
+}
+
 h1 {
   text-align: center;
-  background-color: aquamarine;
+  background-color: #9400ff;
   margin: 0;
   padding: 3%;
   border-bottom: 1px solid black;
-}
-
-body {
-  background-color: aqua;
 }
 
 .main-wrapper {
@@ -30,7 +30,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 3%;
-  background-color: coral;
+  background-color: #aed2ff;
 }
 
 .add-score {
@@ -48,7 +48,7 @@ body {
 
 .score-title {
   padding: 3%;
-  background-color: coral;
+  background-color: #aed2ff;
 }
 
 .scores li {
@@ -69,7 +69,7 @@ body {
 }
 
 .scores li:nth-child(n+4) {
-  background-color: antiquewhite;
+  background-color: #e4f1ff;
 }
 
 .input-div {
@@ -77,16 +77,10 @@ body {
   flex-direction: column;
   gap: 20px;
   padding: 3%;
-  background-color: antiquewhite;
+  background-color: #e4f1ff;
 }
 
 .submit-button {
   width: 30%;
   align-self: flex-end;
-}
-
-button:hover {
-  background-color: lightpink;
-  color: blueviolet;
-  border-color: blueviolet;
 }
